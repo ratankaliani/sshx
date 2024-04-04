@@ -182,7 +182,7 @@ async fn handle_streaming(
     }
 }
 
-/// Handles a singe update from the client. Returns `true` on success.
+/// Handles a single update from the client. Returns `true` on success.
 async fn handle_update(tx: &ServerTx, session: &Session, update: ClientUpdate) -> bool {
     session.access();
     match update.client_message {
