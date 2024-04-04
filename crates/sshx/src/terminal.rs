@@ -56,7 +56,7 @@ impl Terminal {
         // The slave file descriptor was created by openpty() and is forked here.
         let child = Self::fork_child(shell, result.slave.as_raw_fd())?;
 
-        // We need to clone the file object to prevent livelocks in Tokio, when multiple
+        // Clone the file object to prevent livelocks in Tokio, when multiple
         // reads and writes happen concurrently on the same file descriptor. This is a
         // current limitation of how the `tokio::fs::File` struct is implemented, due to
         // its blocking I/O on a separate thread.
